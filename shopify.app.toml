@@ -1,0 +1,28 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "57906e9ee9550897532e21b094e6eb3f"
+name = "HauNT Basic App"
+handle = "haunt-basic-app"
+application_url = "https://haunt-portal.dev-bsscommerce.com"
+embedded = true
+
+[webhooks]
+api_version = "2025-01"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_assigned_fulfillment_orders,read_customers,read_discounts,read_draft_orders,read_inventory,read_markets,read_merchant_managed_fulfillment_orders,read_metaobject_definitions,read_metaobjects,read_online_store_navigation,read_orders,read_products,read_publications,read_themes,read_third_party_fulfillment_orders,write_customers,write_discounts,write_draft_orders,write_files,write_inventory,write_markets,write_metaobject_definitions,write_metaobjects,write_online_store_navigation,write_order_edits,write_orders,write_payment_terms,write_products,write_script_tags,write_shipping,write_themes"
+
+[auth]
+redirect_urls = [
+  "https://haunt-portal.dev-bsscommerce.com/auth/callback",
+  "https://haunt-portal.dev-bsscommerce.com/auth/shopify/callback",
+  "https://haunt-portal.dev-bsscommerce.com/api/auth/callback"
+]
+
+[pos]
+embedded = false
+
+[build]
+automatically_update_urls_on_dev = false
+include_config_on_deploy = true

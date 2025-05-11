@@ -1,0 +1,33 @@
+.switch {
+	--switch-size: 20px;
+	--padding-size: 4px;
+	display: inline-block;
+	width: calc(var(--switch-size) * 2);
+	height: var(--switch-size);
+	border-radius: var(--switch-size);
+	padding: var(--padding-size);
+	background-color: #bfbfbf;
+	cursor: pointer;
+}
+
+.switch::before {
+	content: "";
+	display: block;
+	width: calc(var(--switch-size) - var(--padding-size) * 2);
+	height: calc(var(--switch-size) - var(--padding-size) * 2);
+	border-radius: var(--switch-size);
+	background-color: white;
+	transition: 0.2s linear;
+}
+
+.switch input {
+	display: none;
+}
+
+.switch:has(input:checked) {
+	background-color: #237f60;
+}
+
+.switch:has(input:checked)::before {
+	transform: translateX(var(--switch-size));
+}

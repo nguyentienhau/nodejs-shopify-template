@@ -1,0 +1,34 @@
+{
+	"name": "frontend",
+	"version": "1.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"coverage": "vitest run --coverage"
+	},
+	"dependencies": {
+		"@dnd-kit/core": "^6.3.1",
+		"@dnd-kit/sortable": "^10.0.0",
+		"@dnd-kit/utilities": "^3.2.2",
+		"@formatjs/intl-locale": "^4.2.11",
+		"@formatjs/intl-localematcher": "^0.5.10",
+		"@formatjs/intl-pluralrules": "^5.4.4",
+		"@shopify/app-bridge": "^3.7.10",
+		"@shopify/app-bridge-react": "^4.1.10",
+		"@shopify/i18next-shopify": "^0.2.11",
+		"@shopify/polaris": "^13.9.5",
+		"@shopify/polaris-icons": "^9.3.1",
+		"i18next": "^25.1.2",
+		"i18next-resources-to-backend": "^1.2.1",
+		"prop-types": "^15.8.1",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"react-i18next": "^15.5.1",
+		"react-router-dom": "^7.6.0"
+	},
+	"devDependencies": {
+		"@vitejs/plugin-react": "^4.4.1",
+		"vite": "^6.3.5"
+	}
+}
