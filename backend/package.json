@@ -1,0 +1,23 @@
+{
+	"name": "backend",
+	"version": "1.0.0",
+	"scripts": {
+		"db:init": "sequelize db:drop && sequelize db:create && sequelize db:migrate && sequelize db:seed:all",
+		"db:update": "sequelize db:migrate && sequelize db:seed:all",
+		"debug": "node --inspect-brk index.js",
+		"dev": "nodemon index.js --ignore ../frontend",
+		"serve": "node index.js NODE_ENV=production"
+	},
+	"dependencies": {
+		"@shopify/shopify-api": "^11.12.0",
+		"@shopify/shopify-app-express": "^5.0.17",
+		"express": "^4.21.2",
+		"jsonwebtoken": "^9.0.2",
+		"mysql2": "^3.14.1",
+		"sequelize": "^6.37.7"
+	},
+	"devDependencies": {
+		"nodemon": "^3.1.10",
+		"sequelize-cli": "^6.6.3"
+	}
+}
