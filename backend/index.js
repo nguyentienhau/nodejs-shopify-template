@@ -5,6 +5,7 @@ require("./custom");
 require("./setup-env");
 const shopify = require("./shopify");
 const PrivacyWebhookHandlers = require("./privacy");
+const afterAuth = require("./after-auth");
 const routes = require("./routes");
 
 const PORT = parseInt(process.env.BACKEND_PORT || process.env.SHOPIFY_PORT || process.env.PORT || 3000);
@@ -13,7 +14,7 @@ const app = express();
 
 // Set up Shopify authentication and webhook handling
 app.get(shopify.config.auth.path, shopify.auth.begin());
-app.get(shopify.config.auth.callbackPath, shopify.auth.callback(), shopify.redirectToShopifyOrAppRoot());
+app.get(shopify.config.auth.callbackPath, shopify.auth.callback(), afterAuth, shopify.redirectToShopifyOrAppRoot());
 app.post(shopify.config.webhooks.path, shopify.processWebhooks({ webhookHandlers: PrivacyWebhookHandlers }));
 
 // If you are adding routes outside of the /api path, remember to also add a proxy rule for them in web/frontend/vite.config.js

@@ -55,6 +55,95 @@ span.Polaris-Icon {
 
 /* Fix Polaris End */
 
+/* Custom Page Start */
+
+button.Polaris-FullscreenBar__BackAction {
+	width: 5.7rem;
+	padding-left: 0.6rem;
+}
+
+button.Polaris-FullscreenBar__BackAction .Polaris-Icon:first-child {
+	margin-right: 0.1rem;
+}
+
+button.Polaris-FullscreenBar__BackAction :first-child {
+	margin: 0rem;
+}
+
+/* Custom Page End */
+
+/* Color Picker Start  */
+
+.Polaris-TextField:has(.Polaris-ColorPickerActivator) .Polaris-TextField__Suffix {
+	position: absolute;
+	top: 0rem;
+	bottom: 0rem;
+	right: 0rem;
+	aspect-ratio: 1/1;
+	margin-right: 0rem;
+}
+
+.Polaris-TextField:has(.Polaris-ColorPickerActivator) .Polaris-TextField__Suffix div {
+	width: 100%;
+	height: 100%;
+}
+
+.Polaris-TextField .Polaris-ColorPickerActivator {
+	width: 100%;
+	height: 100%;
+	border: 1px solid #898f94;
+	border-radius: 0.5rem;
+	cursor: pointer;
+}
+
+.Polaris-TextField.Polaris-TextField--error .Polaris-ColorPickerActivator {
+	border-color: #8e0b21;
+}
+
+.Polaris-Connected__Item--focused .Polaris-TextField .Polaris-ColorPickerActivator {
+	border-color: #1a1a1a;
+}
+
+/* Color Picker End  */
+
+/* Switch Start  */
+
+.Polaris-Switch {
+	--switch-size: 20px;
+	--padding-size: 4px;
+	display: inline-block;
+	width: calc(var(--switch-size) * 2);
+	height: var(--switch-size);
+	border-radius: var(--switch-size);
+	padding: var(--padding-size);
+	background-color: #bfbfbf;
+	cursor: pointer;
+}
+
+.Polaris-Switch::before {
+	content: "";
+	display: block;
+	width: calc(var(--switch-size) - var(--padding-size) * 2);
+	height: calc(var(--switch-size) - var(--padding-size) * 2);
+	border-radius: var(--switch-size);
+	background-color: white;
+	transition: 0.2s linear;
+}
+
+.Polaris-Switch input {
+	display: none;
+}
+
+.Polaris-Switch:has(input:checked) {
+	background-color: #237f60;
+}
+
+.Polaris-Switch:has(input:checked)::before {
+	transform: translateX(var(--switch-size));
+}
+
+/* Switch End  */
+
 /*
 @media screen and (max-width: 842px) {
 	html:not(html:has(div[id^="modal-content"])) {
