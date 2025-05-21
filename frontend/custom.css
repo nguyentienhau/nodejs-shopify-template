@@ -1,0 +1,69 @@
+* {
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+	font-family: Inter, sans-serif;
+}
+
+html {
+	font-size: 17px !important;
+}
+
+body {
+	margin: 0rem;
+}
+
+/* Fix Polaris Start */
+
+.Polaris-Tag .Polaris-Text--root,
+.Polaris-Select .Polaris-Select__Content,
+.Polaris-Select .Polaris-Select__Input,
+.Polaris-TextField .Polaris-TextField__Input {
+	font-size: var(--p-font-size-325);
+}
+
+.Polaris-Tag {
+	padding: 0.2rem 0.2rem 0.2rem 0.5rem;
+}
+
+.Polaris-BlockStack.Polaris-BlockStack--listReset {
+	gap: 0.5rem;
+}
+
+.Polaris-ChoiceList__ChoiceChildren > .Polaris-Box {
+	padding-block-start: 0.3rem;
+}
+
+.Polaris-IndexTable__TableCell:has(.Polaris-Avatar) {
+	width: 0rem;
+}
+
+.DragDropItem .Polaris-InlineStack > div:has(.Polaris-TextField) {
+	flex-grow: 1;
+}
+
+button.Polaris-Button {
+	margin: 0rem;
+}
+
+button.Polaris-Button .Polaris-Text--root {
+	font-size: var(--p-text-body-md-font-size);
+}
+
+span.Polaris-Icon {
+	margin: 0rem;
+}
+
+/* Fix Polaris End */
+
+/*
+@media screen and (max-width: 842px) {
+	html:not(html:has(div[id^="modal-content"])) {
+		font-size: 18px !important;
+	}
+}
+
+@media screen and (max-width: 619px) {
+	html:has(div[id^="modal-content"]) {
+		font-size: 18px !important;
+	}
+}*/

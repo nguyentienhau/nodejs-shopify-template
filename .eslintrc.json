@@ -1,0 +1,110 @@
+{
+	"env": {
+		"browser": true,
+		"es2021": true,
+		"commonjs": true,
+		"node": true
+	},
+	"ignorePatterns": ["**/node_modules", "**/dist"],
+	"globals": {
+		"SHOPIFY_API_KEY": "readonly",
+		"SHOPIFY_API_VERSION": "readonly"
+	},
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 12,
+		"sourceType": "module"
+	},
+	"plugins": ["react", "spellcheck", "import"],
+	"extends": ["eslint:recommended", "plugin:react/recommended", "plugin:import/recommended"],
+	"settings": {
+		"react": {
+			"version": "detect"
+		},
+		"import/resolver": {
+			"node": {
+				"extensions": [".js", ".jsx", ".ts", ".tsx"]
+			},
+			"alias": {
+				"map": [["@frontend", "./frontend"]]
+			}
+		}
+	},
+	"rules": {
+		"indent": ["warn", "tab", { "SwitchCase": 1 }],
+		"linebreak-style": ["warn", "windows"],
+		"quotes": ["warn", "double"],
+		"semi": ["warn", "always"],
+		"no-unused-vars": ["warn", { "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }],
+		"no-console": ["warn", { "allow": ["warn", "error"] }],
+		"react/react-in-jsx-scope": ["off"],
+		"react/prop-types": ["warn"],
+		"import/no-unresolved": ["error"],
+		"import/named": ["error"],
+		"import/default": ["error"],
+		"import/namespace": ["error"],
+		"import/no-duplicates": ["warn"],
+		"import/order": [
+			"warn",
+			{
+				"groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+				"newlines-between": "never"
+			}
+		],
+		"import/newline-after-import": ["warn", { "count": 1 }],
+		"import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+		"import/no-named-as-default-member": ["off"],
+		"spellcheck/spell-checker": [
+			"warn",
+			{
+				"comments": true,
+				"strings": true,
+				"identifiers": true,
+				"lang": "en_US",
+				"skipWords": [
+					"sequelize",
+					"readdir",
+					"shopify",
+					"graphql",
+					"webhook",
+					"webhooks",
+					"argv",
+					"upsert",
+					"middlewares",
+					"jsonwebtoken",
+					"csp",
+					"vite",
+					"frontend",
+					"sig",
+					"hmr",
+					"wss",
+					"localhost",
+					"polaris",
+					"utf8",
+					"bool",
+					"func",
+					"hsb",
+					"rgb",
+					"noopener",
+					"noreferrer",
+					"checkbox",
+					"textarea",
+					"dnd",
+					"gid",
+					"iframe",
+					"uri",
+					"href",
+					"formatjs",
+					"pluralrules",
+					"lngs",
+					"namespace"
+				],
+				"skipIfMatch": ["http://[^s]*"],
+				"skipWordIfMatch": ["^myshopify.*$"],
+				"minLength": 3
+			}
+		]
+	}
+}
