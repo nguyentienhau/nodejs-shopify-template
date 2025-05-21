@@ -1,7 +1,7 @@
 import { Card, Page, Layout, TextContainer, Image, InlineStack, Link, Text } from "@shopify/polaris";
 import { TitleBar } from "@shopify/app-bridge-react";
 import { useTranslation, Trans } from "react-i18next";
-import { homeTrophyImage } from "@frontend/images";
+import { HomeTrophyImage } from "@frontend/images";
 
 export default function HomePage() {
 	const { t } = useTranslation();
@@ -49,7 +49,7 @@ export default function HomePage() {
 							</InlineStack>
 							<InlineStack>
 								<div style={{ padding: "0 20px" }}>
-									<Image source={homeTrophyImage} alt={t("HomePage.trophyAltText")} width={120} />
+									<Image source={HomeTrophyImage} alt={t("HomePage.trophyAltText")} width={120} />
 								</div>
 							</InlineStack>
 						</InlineStack>

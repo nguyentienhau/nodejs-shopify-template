@@ -1,11 +1,20 @@
 import PropTypes from "prop-types";
 import { useState, createContext, useContext } from "react";
+import { AgUserSample, SaShopSample } from "@frontend/constants";
 
 const AppContext = createContext();
 
 const initialState = Object.freeze({
-	shopify: {
-		shop: {}
+	appGeneral: {
+		user: AgUserSample
+	},
+	shopifyAdmin: {
+		shop: SaShopSample,
+		customers: [],
+		customerTags: [],
+		products: [],
+		collections: [],
+		productTags: []
 	}
 });
 
@@ -39,7 +48,7 @@ export function useDispatch() {
 
 	return function (type = "", payload = {}) {
 		setState(function (state = {}) {
-			const newState = state.copy();
+			const newState = state.deepCopy();
 			const keys = type.split(".").filter((key = "") => key);
 			const lastKey = keys.pop();
 			const target = keys.reduce((object = {}, key = "") => object[key], newState);
