@@ -1,0 +1,26 @@
+{
+	"name": "project",
+	"version": "1.0.0",
+	"scripts": {
+		"format": "prettier . --write",
+		"lint": "eslint **/*.{js,jsx,ts,tsx}",
+		"test": "prettier . --check && eslint **/*.{js,jsx,ts,tsx}",
+		"info": "shopify app info",
+		"dev": "shopify app dev --tunnel-url https://haunt-portal.dev-bsscommerce.com:3000",
+		"build": "shopify app build",
+		"generate": "shopify app generate",
+		"deploy": "shopify app deploy"
+	},
+	"devDependencies": {
+		"@shopify/cli": "^3.0.0",
+		"eslint": "^8.0.0",
+		"eslint-import-resolver-alias": "^1.0.0",
+		"eslint-plugin-import": "^2.0.0",
+		"eslint-plugin-react": "^7.0.0",
+		"eslint-plugin-spellcheck": "^0.0.20",
+		"prettier": "^3.0.0"
+	},
+	"workspaces": [
+		"/*"
+	]
+}
