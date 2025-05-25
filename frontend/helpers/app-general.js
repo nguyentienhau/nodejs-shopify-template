@@ -18,9 +18,57 @@ export async function request(path = "", body = {}) {
 	return result;
 }
 
-export function formatMoney(value = 0, format = "") {
-	return format.format({ value });
+function cleanFormatString(format = "") {
+	[
+		"&lt;span class=money&gt;",
+		"&lt;/span&gt;",
+		"&lt;span class=hidePrice&gt;&lt;span class=hide-price-guest&gt;",
+		"Ex-VAT&lt;/span&gt;",
+		"&lt;span class=hide-price-guest&gt;"
+	].forEach((pattern) => {
+		const regexp = new RegExp(pattern, "g");
+		format = format.replace(regexp, "");
+	});
+
+	return format;
 }
+
+function formatWithDelimiters(amount = 0, precision = 2, thousands = ",", decimal = ".") {
+	const parts = amount.toFixed(precision).split(".");
+	const dollars = parts[0].replace(/(\d)(?=(\d{3})+(?!\d))/g, `$1${thousands}`);
+
+	return parts[1] ? dollars + decimal + parts[1] : dollars;
+}
+
+export const formatMoney = function (amount = 0, format = "{{amount}}") {
+	if (isNaN(amount)) amount = 0;
+	if (typeof format !== "string") format = "{{amount}}";
+
+	const placeholderRegex = /\{\{\s*(\w+)\s*\}\}/;
+	const formatString = cleanFormatString(format);
+	const formatType = formatString.match(placeholderRegex)[1];
+	let value = "";
+
+	switch (formatType) {
+		case "amount":
+			value = formatWithDelimiters(amount, 2);
+			break;
+		case "amount_no_decimals":
+			value = formatWithDelimiters(amount, 0);
+			break;
+		case "amount_with_comma_separator":
+			value = formatWithDelimiters(amount, 2, ".", ",");
+			break;
+		case "amount_no_decimals_with_comma_separator":
+			value = formatWithDelimiters(amount, 0, ".", ",");
+			break;
+		case "amount_with_apostrophe_separator":
+			value = formatWithDelimiters(amount, 0, "'", ",");
+			break;
+	}
+
+	return formatString.replace(placeholderRegex, value);
+};
 
 export function getFormFieldData(data = {}) {
 	return Object.entries(data).reduce(function (accumulator, entry) {
